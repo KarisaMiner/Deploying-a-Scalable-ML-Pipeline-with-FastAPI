@@ -13,7 +13,7 @@ from ml.model import (
     train_model,
 )
 # TODO: load the cencus.csv data
-project_path = "/workspaces/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/data/census.csv"
+project_path = "/workspaces/Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path) # your code here
@@ -39,7 +39,7 @@ X_train, y_train, encoder, lb = process_data(
     train,
     categorical_features=cat_features,
     label="salary",
-    trainings=True
+    training=True
     )
 
 X_test, y_test, _, _ = process_data(
@@ -76,6 +76,7 @@ print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}")
 
 # TODO: compute the performance on model slices using the performance_on_categorical_slice function
 # iterate through the categorical features
+slice_output_path = os.path.join(project_path, "slice_output.txt")
 open(slice_output_path, "w").close()
 
 for col in cat_features:
