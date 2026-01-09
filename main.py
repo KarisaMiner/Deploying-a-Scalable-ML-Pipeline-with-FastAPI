@@ -70,5 +70,5 @@ async def post_inference(data: Data):
         encoder=encoder,
         lb=None,
     )
-    _inference = inference(model, data_processed)[0] # your code here to predict the result using data_processed
+    _inference = inference(model, data_processed) # your code here to predict the result using data_processed
     return {"result": apply_label(_inference)}
